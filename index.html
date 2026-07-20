@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta
+        name="theme-color"
+        content="#121212">
+
+    <meta
+        name="description"
+        content="Steph-PRONO - Analyses et pronostics football">
+
+    <meta
+        name="mobile-web-app-capable"
+        content="yes">
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes">
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Steph-PRONO">
+
+    <title>Steph-PRONO</title>
+
+    <!-- Police -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icônes -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+
+    <header class="header">
+
+        <div class="topHeader">
+
+            <div class="brand">
+
+                <div class="logoCircle">
+
+                    ⚽
+
+                </div>
+
+                <div>
+
+                    <h1>
+
+                        Steph-PRONO
+
+                    </h1>
+
+                    <span>
+
+                        Smart Football Predictions
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="notificationBtn"
+                id="notificationBtn">
+
+                <i class="fa-solid fa-bell"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Recherche -->
+
+        <div class="searchBar">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Rechercher un match ou une équipe...">
+
+        </div>
+
+        <!-- MATCHS / LIGUES -->
+
+        <div class="switchTabs">
+
+            <button
+                class="switchBtn active"
+                data-tab="matches">
+
+                MATCHS
+
+            </button>
+
+            <button
+                class="switchBtn"
+                data-tab="leagues">
+
+                LIGUES
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- FILTRES -->
+    <!-- ========================= -->
+
+    <section class="filterBar">
+
+        <button
+            class="filterButton">
+
+            <i class="fa-solid fa-sliders"></i>
+
+            Filtre
+
+        </button>
+
+        <button
+            class="liveButton">
+
+            🔴 En direct
+
+        </button>
+
+        <button
+            class="dateButton">
+
+            <i class="fa-solid fa-chevron-left"></i>
+
+            Aujourd'hui
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- CHAMPIONNATS -->
+    <!-- ========================= -->
+
+    <section
+        class="leagueCarousel"
+        id="leagueCarousel">
+
+        <!-- rempli par JavaScript -->
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- CONTENU PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main
+        id="matchContainer">
+
+        <!-- Cartes des matchs -->
+
+    </main>
+    <!-- ========================= -->
+    <!-- BOTTOM SHEET -->
+    <!-- ========================= -->
+
+    <div
+        class="sheetOverlay"
+        id="sheetOverlay"></div>
+
+    <section
+        class="bottomSheet"
+        id="bottomSheet">
+
+        <div class="sheetHandle"></div>
+
+        <div class="sheetHeader">
+
+            <div>
+
+                <h2 id="sheetTitle">
+
+                    Analyse du match
+
+                </h2>
+
+                <p id="sheetSubtitle">
+
+                    Détails et statistiques
+
+                </p>
+
+            </div>
+
+            <button
+                id="closeSheet"
+                class="closeSheetBtn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <!-- Onglets -->
+
+        <div class="sheetTabs">
+
+            <button
+                class="sheetTab active"
+                data-sheet="analysis">
+
+                Analyse
+
+            </button>
+
+            <button
+                class="sheetTab"
+                data-sheet="stats">
+
+                Stats
+
+            </button>
+
+            <button
+                class="sheetTab"
+                data-sheet="notes">
+
+                Notes
+
+            </button>
+
+        </div>
+
+        <!-- Contenu -->
+
+        <div
+            class="sheetContent"
+            id="sheetContent">
+
+            <!-- rempli par app.js -->
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- FAVORIS -->
+    <!-- ========================= -->
+
+    <section
+        id="favoritesPage"
+        class="page hidden">
+
+        <div class="pageHeader">
+
+            <h2>
+
+                ⭐ Mes Favoris
+
+            </h2>
+
+        </div>
+
+        <div
+            id="favoritesContainer">
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- REGLAGES -->
+    <!-- ========================= -->
+
+    <section
+        id="settingsPage"
+        class="page hidden">
+
+        <div class="pageHeader">
+
+            <h2>
+
+                ⚙️ Réglages
+
+            </h2>
+
+        </div>
+
+        <div class="settingsList">
+
+            <div class="settingItem">
+
+                <span>
+
+                    Vibrations
+
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="vibrationToggle"
+                        checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <div class="settingItem">
+
+                <span>
+
+                    Mode sombre
+
+                </span>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        checked
+                        disabled>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- NAVIGATION -->
+    <!-- ========================= -->
+
+    <nav class="bottomNav">
+
+        <button
+            class="navItem active"
+            data-page="home">
+
+            <i class="fa-solid fa-futbol"></i>
+
+            <span>
+
+                Football
+
+            </span>
+
+        </button>
+
+        <button
+            class="navItem"
+            data-page="predictions">
+
+            <i class="fa-solid fa-fire"></i>
+
+            <span>
+
+                Pronos
+
+            </span>
+
+        </button>
+
+        <button
+            class="navItem"
+            data-page="favorites">
+
+            <i class="fa-solid fa-star"></i>
+
+            <span>
+
+                Favoris
+
+            </span>
+
+        </button>
+
+        <button
+            class="navItem"
+            data-page="settings">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+
+                Réglages
+
+            </span>
+
+        </button>
+
+    </nav>
+    <!-- ========================= -->
+    <!-- LOADER -->
+    <!-- ========================= -->
+
+    <div id="appLoader" class="appLoader">
+
+        <div class="loaderContent">
+
+            <div class="loaderBall"></div>
+
+            <h2>Steph-PRONO</h2>
+
+            <p>Chargement des analyses...</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script src="data/config.js"></script>
+
+<script src="app.js"></script>
+
+<!-- ========================= -->
+<!-- PWA -->
+<!-- ========================= -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("sw.js")
+            .then(() => {
+
+                console.log("Service Worker enregistré");
+
+            })
+            .catch(error => {
+
+                console.error(error);
+
+            });
+
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
